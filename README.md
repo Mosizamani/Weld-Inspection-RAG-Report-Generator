@@ -5,12 +5,6 @@ Small Python service and Jupyter demo for visual weld inspection: combine inspec
 
 ## Architecture
 
-Component	Role & Responsibilities
-app.py (Async API)	Serves as the primary entry point. Manages asynchronous endpoints including get_rag_context, detect_weld_defects, generate_final_report, and the optional check_engine health check.
-RocketRide .pipe Graphs	Handles logic orchestration via flow graphs.• agents.pipe: Processes text questions through Gemini nodes.• vision_agent.pipe: Manages image-to-vision/LLM processing steps.
-Direct Gemini (Fallback)	Acts as a failover layer. If the local RocketRide DAP (localhost:5565) is unavailable or USE_DIRECT_GEMINI=1 is set, payloads are routed directly to the google-generativeai SDK.
-Authentication	API access is secured via environment keys: GEMINI_API_KEY, GOOGLE_API_KEY, or ROCKETRIDE_GEMINI_API_KEY.
-
 Layer	Role
 app.py
 Async API: get_rag_context, detect_weld_defects, generate_final_report, optional check_engine.
