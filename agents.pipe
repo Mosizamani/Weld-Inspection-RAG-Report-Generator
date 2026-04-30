@@ -20,45 +20,15 @@
       }
     },
     {
-      "id": "embedding_1",
-      "provider": "embedding_transformer",
-      "config": { "profile": "miniLM", "parameters": {} },
-      "input": [{ "lane": "questions", "from": "RAG_Node" }],
-      "ui": {
-        "position": { "x": 220, "y": 0 },
-        "measured": { "width": 150, "height": 84 },
-        "nodeType": "default",
-        "formDataValid": true
-      }
-    },
-    {
-      "id": "mongodb_1",
-      "provider": "mongodb+srv",
-      "config": {
-        "host": "${ROCKETRIDE_MONGODB_HOST}",
-        "apikey": "${ROCKETRIDE_MONGODB_APIKEY}",
-        "database": "${ROCKETRIDE_MONGODB_DATABASE}",
-        "collection": "${ROCKETRIDE_MONGODB_COLLECTION}",
-        "score": 0.7
-      },
-      "input": [{ "lane": "questions", "from": "embedding_1" }],
-      "ui": {
-        "position": { "x": 440, "y": 0 },
-        "measured": { "width": 150, "height": 101 },
-        "nodeType": "default",
-        "formDataValid": true
-      }
-    },
-    {
       "id": "llm_1",
       "provider": "llm_gemini",
       "config": {
-        "profile": "gemini-2_0-flash",
-        "gemini-2_0-flash": { "apikey": "${ROCKETRIDE_GEMINI_API_KEY}" }
+        "profile": "gemini-2_5-flash",
+        "gemini-2_5-flash": { "apikey": "${ROCKETRIDE_GEMINI_API_KEY}" }
       },
-      "input": [{ "lane": "questions", "from": "mongodb_1" }],
+      "input": [{ "lane": "questions", "from": "RAG_Node" }],
       "ui": {
-        "position": { "x": 660, "y": 0 },
+        "position": { "x": 220, "y": 0 },
         "measured": { "width": 150, "height": 66 },
         "nodeType": "default",
         "formDataValid": true
@@ -70,7 +40,7 @@
       "config": { "laneName": "answers" },
       "input": [{ "lane": "answers", "from": "llm_1" }],
       "ui": {
-        "position": { "x": 880, "y": 0 },
+        "position": { "x": 440, "y": 0 },
         "measured": { "width": 150, "height": 66 },
         "nodeType": "default",
         "formDataValid": true

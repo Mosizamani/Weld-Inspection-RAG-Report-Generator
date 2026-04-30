@@ -86,8 +86,8 @@
       "id": "llm_vision_1",
       "provider": "llm_gemini",
       "config": {
-        "profile": "gemini-2_0-flash",
-        "gemini-2_0-flash": { "apikey": "${ROCKETRIDE_GEMINI_API_KEY}" }
+        "profile": "gemini-2_5-flash",
+        "gemini-2_5-flash": { "apikey": "${ROCKETRIDE_GEMINI_API_KEY}" }
       },
       "input": [{ "lane": "questions", "from": "prompt_1" }],
       "ui": {
